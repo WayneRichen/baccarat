@@ -7,7 +7,6 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./css/ui.css">
-    <script src="./js/calc.js"></script>    
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <title>百家樂</title>
 </head>
@@ -120,99 +119,19 @@
     </div>
 
     <!-- Up calender -->
-    <div id="up" class="max-w-screen flex justify-center bg-gray-100 md:py-24 md:bg-white p-2">
-        <div class="w-full flex flex-col max-w-6xl bg-white rounded-lg shadow-lg border md:flex-row">
-            <div class="bg-gradient-to-b from-red-500 to-red-600 w-full md:w-1/2 rounded-t-lg md:rounded-l-lg md:rounded-none">
-                <div class="text-3xl md:text-4xl font-black text-white flex justify-center pt-4">上漲行事曆</div>
-                <div class="text-white px-6 pt-2 flex justify-center">看好一檔股票可以製作上漲行事曆，預期股價蒸蒸日上。</div>
-                <div class="w-full flex justify-center px-6 md:px-8 pt-4 pb-6">
-                    <img class="w-full h-full border-4 border-white rounded-lg" src="./img/up.png" alt="">
-                </div>
+    <div id="up" class="max-w-screen flex flex-col justify-center bg-gray-100 md:py-24 md:bg-white p-2">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-row space-x-48">
+                <button class="p-8 border border-gray-200 text-blue-500 font-bold text-8xl" onclick="player()">閒</button>
+                <button class="p-8 border border-gray-200 text-green-500 font-bold text-8xl" onclick="tie()">和</button>
+                <button class="p-8 border border-gray-200 text-red-500 font-bold text-8xl" onclick="banker()">莊</button>
             </div>
-            <div class="p-1 md:p-4 bg-white w-full md:w-1/2 rounded-b-lg md:rounded-r-lg md:rounded-none flex items-center">
-                <div class="w-full flex justify-center py-4 md:p-0 lg:p-4">
-                    <form class="max-w-full">
-                        <div class="flex flex-col px-4 py-1">
-                            <div class="w-full">
-                                <label class="text-base pb-1 font-sans text-black text-opacity-70 font-bold">行事曆標題</label>
-                                <label class="up-title-tip text-xs pb-1 text-red-500 hidden">※請填寫行事曆標題</label>
-                            </div>
-                            <input class="up-title text-gray-700 h-10 rounded py-3 px-4 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring" type="text" maxlength="20" placeholder="例如：台積電股價行事曆">
-                        </div>
-                        <div class="flex flex-row py-1">
-                            <div class="flex flex-col w-1/2 px-4" >
-                                <div class="w-full">
-                                    <label class="text-base pb-1 font-sans text-black text-opacity-70 font-bold">開始日期</label>
-                                    <label class="up-start-date-tip text-xs pb-1 text-red-500 hidden">※請填寫開始日期</label>
-                                </div>
-                                <input class="up-start-date rounded py-2 w-36 sm:w-auto px-4 text-gray-700 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring" id="startDate" type="date">
-                            </div>
-                            <div class="flex flex-col w-1/2 px-4">
-                                <div class="w-full">
-                                    <label class="text-base pb-1 font-sans text-black text-opacity-70 font-bold">結束日期</label>
-                                    <label class="up-end-date-tip text-xs pb-1 text-red-500 hidden">※請填寫結束日期</label>
-                                </div>
-                                <input class="up-end-date rounded py-2 w-36 sm:w-auto px-4 text-gray-700 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring" id="endDate" type="date">
-                            </div>
-                        </div>
-                        <div class="flex flex-row px-4 py-1">
-                            <div class="flex flex-col w-2/5 pr-4">
-                                <div class="full">
-                                    <label class="text-base pb-1 font-sans text-black text-opacity-70 font-bold">起始價格</label>
-                                    <label class="up-price-tip text-xs pb-1 text-red-500 hidden">※請填寫起始價格</label>
-                                </div>
-                                <div class="flex flex-row">
-                                    <input class="up-price text-gray-700 w-full h-10 rounded py-3 px-4 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring" type="number" min="0" max="9999" maxlength="4"> 
-                                    <label class="pl-1 py-2 px-4">元</label>
-                                </div>
-                            </div>
-                            <div class="flex flex-col w-3/5">
-                                <div class="full">
-                                    <label class="text-base pb-1 font-sans text-black text-opacity-70 font-bold">漲幅區間</label>
-                                    <label class="up-percent-tip text-xs pb-1 text-red-500 hidden">※漲幅區間請由小到大排列</label>
-                                </div>
-                                <div class="flex flex-row">
-                                    <div class="relative flex flex-row w-2/5">
-                                        <select class="up-min-percent text-gray-700 w-full h-10 rounded px-2 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring">
-                                            <option value="0">0%</option>
-                                            <option value="1">1%</option>
-                                            <option value="2">2%</option>
-                                            <option value="3">3%</option>
-                                            <option value="4">4%</option>
-                                            <option value="5">5%</option>
-                                            <option value="6">6%</option>
-                                            <option value="7">7%</option>
-                                            <option value="8">8%</option>
-                                            <option value="9">9%</option>
-                                            <option value="10">10%</option>
-                                          </select>
-                                    </div>                      
-                                    <label class="py-2 px-4 w-1/5">至</label>
-                                    <div class="relative flex flex-row w-2/5">
-                                        <select class="up-max-percent text-gray-700 w-full h-10 rounded px-2 focus:outline-none border border-gray-200 focus:ring-red-50 focus:ring">
-                                            <option value="0">0%</option>
-                                            <option value="1">1%</option>
-                                            <option value="2">2%</option>
-                                            <option value="3">3%</option>
-                                            <option value="4">4%</option>
-                                            <option value="5">5%</option>
-                                            <option value="6">6%</option>
-                                            <option value="7">7%</option>
-                                            <option value="8">8%</option>
-                                            <option value="9">9%</option>
-                                            <option value="10">10%</option>
-                                          </select>                        
-                                    </div>
-                                </div>
-                            </div>                
-                        </div>
-                        <div class="w-full py-4 px-4">
-                        <button type="button" class="generate-up bg-red-500 hover:bg-red-700 text-white font-bold rounded py-2 px-2 w-full">
-                            製作上漲行事曆
-                        </button>
-                        </div>
-                    </form>
-                </div>			
+            <div class="border p-2 text-center" id="currentTextArea">
+
+            </div>
+            <span>本次下注的順序...</span>
+            <div id="result" class="p-4 w-full border border-orange-500 text-center">
+                
             </div>
         </div>
     </div>
@@ -275,14 +194,4 @@
     <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 </footer>
 </html>
-<script src="./js/price.js"></script>
 <script src="./js/ui.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFLSN9FTJ7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MFLSN9FTJ7');
-</script>
