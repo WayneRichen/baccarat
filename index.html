@@ -121,17 +121,18 @@
     <!-- Up calender -->
     <div id="up" class="max-w-screen flex flex-col justify-center bg-gray-100 md:py-24 md:bg-white p-2">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-row space-x-48">
-                <button class="p-8 border border-gray-200 text-blue-500 font-bold text-8xl" onclick="player()">閒</button>
-                <button class="p-8 border border-gray-200 text-green-500 font-bold text-8xl" onclick="tie()">和</button>
-                <button class="p-8 border border-gray-200 text-red-500 font-bold text-8xl" onclick="banker()">莊</button>
+            <div class="my-4 w-full flex justify-end" id="count-area">
+                今日剩餘次數：<span id="count"></span>
             </div>
-            <div class="border p-2 text-center" id="currentTextArea">
-
+            <div class="flex flex-row space-x-48">
+                <button class="p-8 rounded bg-blue-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-xl hover:shadow-gray-900" onclick="player()" id="player">閒</button>
+                <button class="p-8 rounded bg-green-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-green-600  hover:shadow-xl hover:shadow-gray-900" onclick="tie()" id="tie">和</button>
+                <button class="p-8 rounded bg-red-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-red-600  hover:shadow-xl hover:shadow-gray-900" onclick="banker()" id="banker">莊</button>
+            </div>
+            <div class="my-4 h-12 p-2 text-center" id="currentTextArea">
             </div>
             <span>本次下注的順序...</span>
-            <div id="result" class="p-4 w-full border border-orange-500 text-center">
-                
+            <div id="result" class="h-12 w-full text-center space-x-4">
             </div>
         </div>
     </div>
