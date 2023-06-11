@@ -148,7 +148,7 @@ function player() {
     times++;
     currentText += '閒';
     document.getElementById("currentTextArea").insertAdjacentHTML("beforeend", "<span class='text-blue-500 text-4xl font-bold'>閒</span>");
-    if (times == 5) {
+    if (times == 4) {
         shuffle();
     }
 }
@@ -160,7 +160,7 @@ function tie() {
     times++;
     currentText += '和';
     document.getElementById("currentTextArea").insertAdjacentHTML("beforeend", "<span class='text-green-500 text-4xl font-bold'>和</span>");
-    if (times == 5) {
+    if (times == 4) {
         shuffle();
     }
 }
@@ -172,7 +172,7 @@ function banker() {
     times++;
     currentText += '莊';
     document.getElementById("currentTextArea").insertAdjacentHTML("beforeend", "<span class='text-red-500 text-4xl font-bold'>莊</span>");
-    if (times == 5) {
+    if (times == 4) {
         shuffle();
     }
 }
