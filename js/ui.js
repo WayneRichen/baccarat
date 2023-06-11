@@ -96,7 +96,7 @@ function getCookie(cname) {
     return "";
 }
 
-let count = getCookie('count') ? getCookie('count') : 10;
+let count = getCookie('count') ? getCookie('count') : 7;
 if (!getCookie('count')) {
     setCookie(count);
 }
