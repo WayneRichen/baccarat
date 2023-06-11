@@ -177,10 +177,19 @@ function banker() {
     }
 }
 
-function shuffle() {
+function sleep(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
+async function shuffle() {
     times = 0;
     count--;
     setCookie(count);
+    for (let i = 1; i < randomCards.length; i++) {
+        document.getElementById("result").innerHTML = randomCards[i];
+        await sleep(50);
+    }
+    cardIndex = 0;
     let randomNumber = Math.floor(Math.random() * 32);
     document.getElementById("result").innerHTML = randomCards[randomNumber];
     document.getElementById("count").innerHTML = count;
