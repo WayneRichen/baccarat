@@ -102,6 +102,7 @@ if (!getCookie('count')) {
 }
 if (count == 0) {
     disabled();
+    document.getElementById("count-area").classList.add('text-red-500', 'font-bold');
 }
 document.getElementById("count").innerHTML = count;
 let times = 0;
@@ -182,6 +183,7 @@ function sleep(time) {
 }
 
 async function shuffle() {
+    disabled();
     times = 0;
     count--;
     setCookie(count);
@@ -193,18 +195,27 @@ async function shuffle() {
     let randomNumber = Math.floor(Math.random() * 32);
     document.getElementById("result").innerHTML = randomCards[randomNumber];
     document.getElementById("count").innerHTML = count;
+    enable();
     if (count == 0) {
         disabled();
+        document.getElementById("count-area").classList.add('text-red-500', 'font-bold');
     }
 }
 
 function disabled() {
-    document.getElementById("count-area").classList.add('text-red-500');
-    document.getElementById("count-area").classList.add('font-bold');
     document.getElementById("banker").disabled = true;
     document.getElementById("banker").classList.add('bg-red-600');
     document.getElementById("tie").disabled = true;
     document.getElementById("tie").classList.add('bg-green-600');
     document.getElementById("player").disabled = true;
     document.getElementById("player").classList.add('bg-blue-600');
+}
+
+function enable() {
+    document.getElementById("banker").disabled = false;
+    document.getElementById("banker").classList.remove('bg-red-600');
+    document.getElementById("tie").disabled = false;
+    document.getElementById("tie").classList.remove('bg-green-600');
+    document.getElementById("player").disabled = false;
+    document.getElementById("player").classList.remove('bg-blue-600');
 }
