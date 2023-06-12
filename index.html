@@ -78,9 +78,9 @@
                 </div>                                  
             </div>                            
     </div>
-    <div class="max-w-screen w-full flex md:hidden bg-cover bg-right bg-no-repeat items-center relative" style="background-image: url(./img/background.png); background-size: cover; background-position: center;">            
+    <div class="max-w-screen w-full flex md:hidden bg-cover bg-right bg-no-repeat items-center relative" style="background-image: url(./img/background.png); background-size: cover; background-position: left center;">            
         <div class="max-w-screen bottom-0 left-0 max-w-sm absolute">
-            <img class="pl-5" src="./img/mememan.png">
+            <img class="pl-5" src="./img/mememan.png" alt="">
         </div>
         <div class="max-w-screen w-full flex flex-col p-6 filter drop-shadow-2xl">
             <div class="flex flex-col inset-x-0 bottom-16 pb-14 absolute">
@@ -119,20 +119,22 @@
     </div>
 
     <!-- Up calender -->
-    <div id="up" class="max-w-screen flex flex-col justify-center bg-gray-100 md:py-24 md:bg-white p-2">
-        <div class="max-w-7xl mx-auto">
+    <div id="up" class="lg:max-w-screen md:w-full flex flex-col justify-center bg-gray-100 md:py-24 md:bg-white p-2">
+        <div class="lg:max-w-7xl lg:w-min w-full mx-auto">
             <div class="my-4 w-full flex justify-center" id="count-area">
                 今日剩餘次數：<span id="count"></span>
             </div>
-            <div class="flex flex-row space-x-48">
-                <button class="p-8 rounded bg-blue-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-xl hover:shadow-gray-900" onclick="player()" id="player">閒</button>
-                <button class="p-8 rounded bg-green-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-green-600  hover:shadow-xl hover:shadow-gray-900" onclick="tie()" id="tie">和</button>
-                <button class="p-8 rounded bg-red-500 text-white font-bold text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-red-600  hover:shadow-xl hover:shadow-gray-900" onclick="banker()" id="banker">莊</button>
+            <div class="flex flex-row lg:space-x-48 justify-around">
+                <button class="p-4 md:p-8 rounded bg-blue-500 text-white font-bold text-6xl md:text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-xl hover:shadow-gray-900" onclick="player()" id="player">閒</button>
+                <button class="p-4 md:p-8 rounded bg-green-500 text-white font-bold text-6xl md:text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-green-600  hover:shadow-xl hover:shadow-gray-900" onclick="tie()" id="tie">和</button>
+                <button class="p-4 md:p-8 rounded bg-red-500 text-white font-bold text-6xl md:text-8xl shadow-lg shadow-gray-700 transition duration-150 ease-in-out hover:bg-red-600  hover:shadow-xl hover:shadow-gray-900" onclick="banker()" id="banker">莊</button>
             </div>
             <div class="my-4 h-12 p-2 text-center" id="currentTextArea">
             </div>
-            <span>本次預測下注順序...</span>
-            <div id="result" class="pt-12 h-24 w-full text-center space-x-4">
+            <div class="lg:w-full w-10/12 flex mx-auto">
+                <span>本次預測下注順序...</span>
+            </div>
+            <div id="result" class="md:pt-12 pt-6 h-24 w-full text-center space-x-4 md:text-6xl text-3xl">
             </div>
         </div>
     </div>
@@ -166,7 +168,7 @@
                     <div class="flex flex-col mt-4">
                         <span class="font-bold text-base md:text-xl text-gray-500">本網站計算程式是利用數據隨機預測結果，不構成任何博弈投資建議。</span>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
