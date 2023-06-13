@@ -50,6 +50,19 @@ faqLinkMobile.addEventListener("click", ()=>{
     menu.classList.toggle("hidden");
 }, false);
 
+const donateLink = document.querySelector('#donateLink');
+const donateMobile = document.querySelector('#donateMobile');
+const donate = document.querySelector('#donate');
+
+donateLink.addEventListener("click", ()=>{
+    donate.scrollIntoView({ behavior: "smooth"});
+}, false);
+
+donateMobile.addEventListener("click", ()=>{
+    donate.scrollIntoView({ behavior: "smooth"});
+    menu.classList.toggle("hidden");
+}, false);
+
 const startButton = document.querySelectorAll("#startButton");
 startButton[0].addEventListener("click", ()=>{
     up.scrollIntoView({ behavior: "smooth"});
